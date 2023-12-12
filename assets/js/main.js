@@ -243,7 +243,7 @@ function signupBtn() {
   }, 300);
 }
 
-// LogOut Event Function
+// Logout Event Function
 function logoutBtn() {
   localStorage.removeItem("currentUser");
   window.location = "index.html";
