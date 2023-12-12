@@ -1,0 +1,341 @@
+// Import All Contents Directory
+@use "helpers/usinghelpers" as *;
+@use "helpers/global";
+
+// Import All Components Directory
+@use "components/components";
+
+// ! ----------------------------- Begining Of The Progject
+
+// NavBar Styling
+.navbar {
+  background-color: #333333;
+  padding: 20px;
+  &__list {
+    @include flex(null, null, space-between, center, 40px);
+    .logo {
+      color: color(text-color);
+      font-size: 20px;
+      @include transition;
+      font-size: 30px;
+      text-decoration: 2px underline wavy color(gold-color);
+      font-weight: bold;
+      @include transition(0.5s);
+      &:hover {
+        color: color(gold-color);
+        text-decoration: none;
+        transform: translateY(-5px) scale(1.01);
+      }
+    }
+    .action__container {
+      @include flex(null, null, space-between, center, 15px);
+      .icon {
+        color: white;
+        font-size: 24px;
+        position: relative;
+        cursor: pointer;
+        &:nth-child(2) {
+          font-size: 30px;
+          color: rgb(255, 92, 92);
+          margin-right: 5px;
+          @include transition;
+          &:hover {
+            scale: 1.1;
+            color: color(secondary-color);
+          }
+          &:active {
+            color: rgb(255, 92, 92);
+          }
+        }
+        &:nth-child(3) {
+          color: gold;
+        }
+        .cart-product {
+          font-size: 10px;
+          font-weight: bold;
+          background-color: color(gold-color);
+          color: color(main-color);
+          padding: 5px;
+          border-radius: 50%;
+          position: absolute;
+          top: -10px;
+          right: -7px;
+        }
+        .favourite-product {
+          font-size: 12px;
+          font-weight: bold;
+          color: white;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -62%);
+        }
+      }
+      .navbar__list--item {
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        color: color(text-color);
+        text-transform: capitalize;
+        @include transition;
+      }
+      .signin, .signup {
+        padding: 3px 10px;
+        border-radius: 7px;
+        &:hover {
+          transform: scaleX(1.03);
+        }
+      }
+      .signin {
+        background-color: color(blue-color);
+        &:active {
+          background-color: #2b88c6;
+        }
+      }
+      .signup {
+        background-color: color(green-color);
+        &:active {
+          background-color: #39d99f;
+        }
+      }
+      .user {
+        margin-right: 15px;
+      }
+      .logout {
+        background-color: color(secondary-color);
+        padding: 3px 10px;
+        border-radius: 7px;
+        margin-left: 50px;
+        @include transition;
+        &:hover {
+          transform: scaleX(1.03);
+        }
+        &:active {
+          background-color: rgb(244, 88, 88);
+        }
+      }
+    }
+  }
+}
+
+// Search Input
+.search {
+  display: inline-block;
+  width: 50%;
+  padding: 20px;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  border: 2px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  &:focus {
+    border-color: color(main-color);
+  }
+}
+
+// Add Product
+.add-product {
+  padding: 15px 25px;
+  border: none;
+  outline: none;
+  background-color: #0B9FE5;
+  color: white;
+  border-radius: 7px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  @include transition;
+  &:hover {
+    background-color: #0b73a2;
+  }
+  &:active {
+    background-color: #0B9FE5;
+  }
+}
+
+// Filter Product
+.filter {
+  margin: 0 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+// All Products Styling
+.all-products, .my-purchases, .my-favourites {
+  @include grid(300px, 30px);
+  margin-block: 50px;
+  .product {
+    background-color: color(text-color);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    @include transition;
+    &:hover {
+      scale: 1.01;
+    }
+    .image {
+      height: 250px;
+      text-align: center;
+      padding: 50px 0 20px;
+      @include flex(null, null, center, center, null);
+      img {
+        width: 40%;
+        height: 70%;
+        object-fit: contain;
+      }
+    }
+    &-body {
+      margin: 10px 0 30px;
+      padding-inline: 20px;
+      min-height: 180px;
+      &__head {
+        margin-block-end: 10px;
+        text-decoration: 2px underline wavy color(gold-color);
+        cursor: pointer;
+      }
+    }
+    &-bottom {
+      padding: 0 20px 15px;
+      @include flex(null, null, space-between, center, null);
+      .icon-favourite, .icon-favourite-solid {
+        font-size: 20px;
+        color: color(secondary-color);
+        cursor: pointer;
+        @include transition;
+        &:hover {
+          scale: 1.2;
+        }
+      }
+      .add-cart, .remove, .edit-product {
+        padding: 5px 10px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        font-weight: bold;
+        background-color: green;
+        color: color(text-color);
+        @include transition;
+        &:hover {
+          scale: 1.05;
+        }
+        &:active {
+          background-color: rgb(61, 194, 61);
+        }
+      }
+      .remove {
+        background-color: color(secondary-color);
+        &:hover {
+          background-color: rgb(194, 0, 0);
+        }
+        &:active {
+          background-color: color(secondary-color);
+        }
+      }
+      .edit-product {
+        background-color: darkkhaki;
+        &:hover {
+          background-color: rgb(149, 145, 83);
+        }
+        &:active {
+          background-color: darkkhaki;
+        }
+      }
+    }
+    .size {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 5px 10px;
+      border-radius: 7px;
+      color: white;
+      font-weight: bold;
+      &.small {
+        background-color: darkgray;
+      }
+      &.medium {
+        background-color: darkmagenta;
+      }
+      &.large {
+        background-color: darkcyan;
+      }
+    }
+  }
+}
+
+// Product Detailes Page
+.prodcut-detailes {
+  margin-block: 50px;
+  .product {
+    background-color: color(text-color);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    @include transition;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    &:hover {
+      scale: 1.01;
+    }
+    .image {
+      text-align: center;
+      padding: 20px 0;
+      @include flex(null, null, center, center, null);
+      img {
+        width: 20%;
+      }
+    }
+    &-body {
+      margin: 10px 0 30px;
+      padding-inline: 20px;
+      &__head {
+        margin-block-end: 10px;
+        text-decoration: 2px underline wavy color(gold-color);
+      }
+      .edit-product {
+        padding: 7px 25px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        font-weight: bold;
+        position: absolute;
+        background-color: darkkhaki;
+        top: 10px;
+        right: 10px;
+        color: white;
+        @include transition;
+        &:hover {
+          background-color: rgb(149, 145, 83);
+        }
+        &:active {
+          background-color: darkkhaki;
+        }
+      }
+    }
+  }
+}
+
+// User Detailes Page
+.user-detailes {
+  img {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+  }
+  .detailes-container {
+    background-color: white;
+    width: 500px;
+    border-radius: 15px;
+    .user-detailes__name {
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 7px;
+      @include flex(null, null, null, center, 20px);
+      .head {
+        background-color: #e1eefb;
+        min-width: 150px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+    }
+  }
+}

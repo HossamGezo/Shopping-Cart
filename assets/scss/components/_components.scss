@@ -1,0 +1,158 @@
+// Import All Helpers Directory Content
+@use "../helpers/usinghelpers" as *;
+
+// PopUp Styling 
+.popup__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @include flex(null, null, center, center, null);
+  background-color: color(overlay-color);
+  .popup {
+    @include transition(0.7s);
+    transform: translateY(-300%);
+    width: 25%;
+    background-color: color(text-color);
+    border-radius: 10px;
+    padding: 30px 20px;
+    position: relative;
+    .close-btn {
+      font-size: 25px;
+      font-weight: bold;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      @include transition;
+      &:hover {
+        scale: 1.02;
+        color: red;
+      }
+    }
+    &__heading {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 25px;
+      font-weight: bold;
+      text-decoration: 2px underline wavy color(gold-color);
+    }
+    &__body {
+      @include flex(null, column, center, null, 10px);
+      &--input, textarea, select {
+        width: 70%;
+        margin: 0 auto 10px;
+        padding: 10px;
+        border-radius: 7px;
+        border: 1px solid color(main-color);
+        outline: none;
+      }
+      .select-container {
+        @include flex(null, null, center, center, null);
+        position: relative;
+        select {
+          appearance: none;
+          color: #757575;
+        }
+        i {
+          position: absolute;
+          right: 70px;
+          top: 42%;
+          transform: translateY(-50%);
+        }
+      }
+      :is(&--submitsignin, &--submitsignup, &--create){
+        width: 100px;
+        margin: 0 auto;
+        background-color: color(main-color);
+        color: color(gold-color);
+        border: none;
+        outline: none;
+        padding: 7px 15px;
+        border-radius: 7px;
+        font-weight: bold;
+        @include transition;
+        &:hover {
+          scale: 1.02;
+        }
+        &:active {
+          background-color: #636262;
+        }
+      }
+    }
+  }
+}
+
+// Side Message
+.side-message__container {
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+  .side-message {
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 7px;
+    color: color(text-color);
+    font-size: 20px;
+    font-weight: bold;
+    transform: translateX(300%);
+    @include transition(0.7s);
+  }
+}
+
+// Filter Component
+.filter-buttons {
+  @include flex(null, null, center, center, 10px);
+  @include transition;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 50px;
+  width: 0;
+  .filter-size {
+    .filter-size__select {
+      padding: 7px 20px;
+      border-radius: 7px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      @include transition;
+      &.small {
+        background-color: darkgray;
+        &:hover {
+          background-color: rgb(122, 122, 122);
+        }
+        &:active {
+          background-color: darkgray;
+        }
+      }
+      &.medium {
+        background-color: darkmagenta;
+        &:hover {
+          background-color: rgb(71, 0, 71);
+        }
+        &:active {
+          background-color: darkmagenta;
+        }
+      }
+      &.large {
+        background-color: darkcyan;
+        &:hover {
+          background-color: rgb(0, 96, 96);
+        }
+        &:active {
+          background-color: darkcyan;
+        }
+      }
+      &.all {
+        background-color: color(main-color);
+        &:hover {
+          background-color: #000000;
+        }
+        &:active {
+          background-color: color(main-color);
+        }
+      }
+    }
+  }
+}

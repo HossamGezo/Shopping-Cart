@@ -1,0 +1,28 @@
+// Import Variables & Functions From Helpers Directory
+@use "variables" as *;
+@use "functions" as *;
+
+// 1 --- Flex Mixin
+@mixin flex($wrap, $direction, $justify, $align, $gap) {
+  display: flex;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+// 2 --- Grid Mixin
+@mixin grid($width, $gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($width, 1fr));
+  gap: $gap;
+}
+// 3 --- Media Mixin
+// 4 --- Keyframes Mixin
+// 5 --- ScrollBar Mixin
+// 6 --- Transition Mixin
+@mixin transition ($transition: 0.3s){
+  transition: $transition linear;
+}
+// 7 --- Border Mixin
+// 8 --- BoxShadow Mixin
