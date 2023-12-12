@@ -736,7 +736,7 @@ function showPurchases() {
   allPurchases.innerHTML = "";
   show(purchases, 1);
 }
-if (window.location.pathname === "/cartproducts.html") {
+if (window.location.pathname === "/cartproducts.html" || window.location.pathname === "/Shopping-Cart/cartproducts.html") {
   showPurchases();
 }
 
@@ -747,7 +747,7 @@ function showFavourites() {
   allPurchases.innerHTML = "";
   show(favourites, 2);
 }
-if (window.location.pathname === "/favourites.html") {
+if (window.location.pathname === "/favourites.html" || window.location.pathname === "/Shopping-Cart/favourites.html") {
   showFavourites();
 }
 
@@ -758,7 +758,7 @@ function showUserProducts() {
   allPurchases.innerHTML = "";
   show(userProducts, 3);
 }
-if (window.location.pathname === "/myproducts.html") {
+if (window.location.pathname === "/myproducts.html" || window.location.pathname === "/Shopping-Cart/myproducts.html") {
   showUserProducts();
 }
 
@@ -777,7 +777,7 @@ function showProfileDetailes() {
     </div>
   `;
 }
-if (window.location.pathname === "/profile.html") {
+if (window.location.pathname === "/profile.html" || window.location.pathname === "/Shopping-Cart/profile.html") {
   showProfileDetailes();
 }
 
@@ -835,7 +835,7 @@ function showProductDetailes() {
     <!-- // Product -->
   `;
 }
-if (window.location.pathname === "/productdetailes.html") {
+if (window.location.pathname === "/productdetailes.html" || window.location.pathname === "/Shopping-Cart/productdetailes.html") {
   showProductDetailes();
 }
 
