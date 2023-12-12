@@ -218,7 +218,7 @@ if (!localStorage.user) localStorage.setItem("user", JSON.stringify(user));
 
 setupUI();
 
-if (window.location.pathname === "/index.html" || window.location.pathname === "/Shopping-Cart/") {
+if (window.location.pathname === "/index.html" || window.location.pathname === "/Shopping-Cart/" || window.location.pathname === "/Shopping-Cart/index.html") {
   showProducts();
 }
 // ! ------------------- Events 
@@ -379,7 +379,7 @@ mainContent.addEventListener("click", function (event) {
 });
 
 // Search Input Event
-if (window.location.pathname === "/index.html" || window.location.pathname === "/Shopping-Cart/") {
+if (window.location.pathname === "/index.html" || window.location.pathname === "/Shopping-Cart/" || window.location.pathname === "/Shopping-Cart/index.html") {
   search.addEventListener("keyup", function () {
     let itSolid;
     if (localStorage.currentUser) {
@@ -669,7 +669,7 @@ function showProducts(array = []) {
   });
   allProducts.innerHTML = products.join("");
 }
-if (window.location.pathname === "/index.html" || window.location.pathname === "/Shopping-Cart/") {
+if (window.location.pathname === "/index.html" || window.location.pathname === "/Shopping-Cart/" || window.location.pathname === "/Shopping-Cart/index.html") {
   showProducts();
 }
 
@@ -761,7 +761,6 @@ function showUserProducts() {
 if (window.location.pathname === "/myproducts.html" || window.location.pathname === "/Shopping-Cart/myproducts.html") {
   showUserProducts();
 }
-
 // Show Profile Detailes
 function showProfileDetailes() {
   let userInfo = JSON.parse(localStorage.currentUser);
