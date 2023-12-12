@@ -218,7 +218,9 @@ if (!localStorage.user) localStorage.setItem("user", JSON.stringify(user));
 
 setupUI();
 
-showProducts();
+if (window.location.pathname === "/index.html") {
+  showProducts();
+}
 // ! ------------------- Events 
 
 // SignIn Event Function
