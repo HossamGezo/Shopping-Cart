@@ -218,6 +218,7 @@ if (!localStorage.user) localStorage.setItem("user", JSON.stringify(user));
 
 setupUI();
 
+showProducts();
 // ! ------------------- Events 
 
 // SignIn Event Function
